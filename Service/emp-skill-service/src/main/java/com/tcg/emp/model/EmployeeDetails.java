@@ -2,9 +2,7 @@ package com.tcg.emp.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,8 +25,11 @@ public class EmployeeDetails {
     private Long id;
     
     private String empId;
+    
     private String empName;
     
-    @OneToMany(mappedBy = "employeeDetails", fetch = FetchType.EAGER)
-    private List<SkillDetails> skillDetailsList;
+    private String empEmail;
+    
+    @OneToMany(mappedBy = "employeeDetails")
+    private List<EmployeeSkillsDetails> empSkillDetails;
 }
